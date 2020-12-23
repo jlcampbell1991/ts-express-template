@@ -1,5 +1,6 @@
 {
   "name": "ts-express-template",
   "version": "0.0.0",
+  "main": "./index",
   "bin": "./index.js",
 }
