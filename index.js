@@ -19,4 +19,4 @@ function iterateFiles(readFrom, writeTo) {
   })
 }
 
-iterateFiles('./template', './temp');
+iterateFiles('./template', './');
