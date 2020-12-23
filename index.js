@@ -14,11 +14,11 @@ function iterateFiles(readFrom, writeTo) {
 
     if(fs.lstatSync(fromPath).isDirectory()) {
       maybeWriteDir(toPath);
-      iterateFiles(fromPath, toPath)
+      iterateFiles(fromPath, toPath);
     } else {
-      fs.copyFileSync(fromPath, toPath)
+      fs.copyFileSync(fromPath, toPath);
     }
   })
 }
 
-iterateFiles('./template', './');
+iterateFiles('/usr/local/lib/node_modules/ts-express-template/template', './');

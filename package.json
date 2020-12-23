@@ -2,5 +2,4 @@
   "name": "ts-express-template",
   "version": "0.0.0",
   "bin": "./index.js",
-  "files": [ "./template/" ]
 }
