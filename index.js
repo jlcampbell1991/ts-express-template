@@ -16,7 +16,8 @@ function iterateFiles(readFrom, writeTo) {
         maybeWriteDir(toPath);
         iterateFiles(fromPath, toPath);
       } else {
-        fs.copyFileSync(fromPath, toPath);
+        const path = file === 'gitignore' ? toPath.replace('gitignore', '.gitignore') else toPath;
+        fs.copyFileSync(fromPath, path);
       }
     }
   })
