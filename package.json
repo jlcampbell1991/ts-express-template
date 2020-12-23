@@ -1,0 +1,4 @@
+{
+  "name": "ts-express-template",
+  "bin": "./index.js"
+}
