@@ -3,4 +3,5 @@
   "version": "0.0.0",
   "main": "./index",
   "bin": "./index.js",
+  "files": [ "./template/" ]
 }
