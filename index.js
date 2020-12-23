@@ -11,12 +11,13 @@ function iterateFiles(readFrom, writeTo) {
   fs.readdirSync(readFrom).forEach(file => {
     const fromPath = `${readFrom}/${file}`;
     const toPath = `${writeTo}/${file}`;
-
-    if(fs.lstatSync(fromPath).isDirectory()) {
-      maybeWriteDir(toPath);
-      iterateFiles(fromPath, toPath);
-    } else {
-      fs.copyFileSync(fromPath, toPath);
+    if(file !== '.DS_Store' && file !== '.npmignore') {
+      if(fs.lstatSync(fromPath).isDirectory()) {
+        maybeWriteDir(toPath);
+        iterateFiles(fromPath, toPath);
+      } else {
+        fs.copyFileSync(fromPath, toPath);
+      }
     }
   })
 }
