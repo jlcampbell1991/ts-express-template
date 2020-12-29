@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "directories": {
     "test": "test"
-  },
+  },  
   "scripts": {
     "clean": "rimraf dist/*",
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
@@ -14,6 +14,7 @@
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --watch src -e ts --exec npm run dev:start",
     "start": "node -r dotenv/config .",
+    "prod": "npm run dev:start",
     "test": "jest"
   },
   "keywords": [],

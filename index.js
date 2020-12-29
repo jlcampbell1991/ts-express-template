@@ -1,6 +1,6 @@
-#!/usr/bin/env node
-
 const fs = require('fs');
+
+const templateDir = '/Users/joshuacampbell/Dev/express/ts-express/template';
 
 function maybeWriteDir(name) {
   if(!fs.existsSync(name)) { fs.mkdirSync(name, { recursive: true }); }
@@ -11,16 +11,13 @@ function iterateFiles(readFrom, writeTo) {
   fs.readdirSync(readFrom).forEach(file => {
     const fromPath = `${readFrom}/${file}`;
     const toPath = `${writeTo}/${file}`;
-    if(file !== '.DS_Store' && file !== '.npmignore') {
-      if(fs.lstatSync(fromPath).isDirectory()) {
-        maybeWriteDir(toPath);
-        iterateFiles(fromPath, toPath);
-      } else {
-        const path = file === 'gitignore' ? toPath.replace('gitignore', '.gitignore') else toPath;
-        fs.copyFileSync(fromPath, path);
-      }
+    if(fs.lstatSync(fromPath).isDirectory()) {
+      maybeWriteDir(toPath);
+      iterateFiles(fromPath, toPath);
+    } else {
+      fs.copyFileSync(fromPath, toPath);
     }
   })
 }
 
-iterateFiles('/usr/local/lib/node_modules/ts-express-template/template', './');
+iterateFiles(templateDir, `./${process.argv[2]}`);

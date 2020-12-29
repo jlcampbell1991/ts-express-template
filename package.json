@@ -1,7 +1,8 @@
 {
-  "name": "ts-express-template",
+  "name": "ts-express",
   "version": "0.0.0",
   "main": "./index",
-  "bin": "./index.js",
-  "files": [ "./template/" ]
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
