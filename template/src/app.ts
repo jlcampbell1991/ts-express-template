@@ -10,7 +10,7 @@ class App {
   private port: number
   private logger: Logger;
 
-  constructor(routes: Routes, port: number) {
+  constructor(routes: Routes, port: number, logger: Logger) {
     this.app = express();
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +18,7 @@ class App {
 
     this.app.use("/", routes.router);
 
-    this.logger = new Logger("App");
+    this.logger = logger;
   }
 
   listen(): void {
